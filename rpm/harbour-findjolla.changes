@@ -1,0 +1,15 @@
+# Rename this file as findjolla.changes to include changelog
+# entries in your RPM file.
+#
+# Add new changelog entries following the format below.
+# Add newest entries to the top of the list.
+# Separate entries from eachother with a blank line.
+
+# * date Author's Name <author's email> version-release
+# - Summary of changes
+
+* Sat Oct 28 2015 Arto Jalkanen <arto.jalkanen@vincit.fi> 0.1-1
+- Initial version
+
+
+

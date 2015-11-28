@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-findjolla
+Exec=harbour-findjolla
+Name=Find My Jolla
+# translation example:
+# your app name in German locale (de)
+# Name[de]=findjolla
+

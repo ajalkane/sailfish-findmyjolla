@@ -1,0 +1,341 @@
+Setting snooze:
+timedclient-qt5 --set-app-snooze=FindJolla:30
+
+Find out what comes when message is received:
+
+dbus-monitor "type='signal',interface='org.freedesktop.Telepathy.Channel.Interface.Messages'"
+
+What comes for SMS "Heippa":
+
+[nemo@Jolla ~]$ dbus-monitor
+
+signal sender=:1.9 -> dest=(null destination) serial=1194 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=MessageReceived
+   array [
+      array [
+         dict entry(
+            string "pending-message-id"
+            variant                uint32 10
+         )
+         dict entry(
+            string "message-token"
+            variant                string "d0b14ec2-94af-4c62-8e82-5e3ce8b1a978"
+         )
+         dict entry(
+            string "message-type"
+            variant                uint32 0
+         )
+         dict entry(
+            string "message-sent"
+            variant                int64 1418552941
+         )
+         dict entry(
+            string "message-sender"
+            variant                uint32 18
+         )
+         dict entry(
+            string "message-received"
+            variant                int64 1418552943
+         )
+      ]
+      array [
+         dict entry(
+            string "content"
+            variant                string "Heippa"
+         )
+         dict entry(
+            string "content-type"
+            variant                string "text/plain"
+         )
+         dict entry(
+            string "type"
+            variant                string "text/plain"
+         )
+      ]
+   ]
+signal sender=:1.9 -> dest=(null destination) serial=1195 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=PendingMessagesRemoved
+   array [
+      uint32 10
+   ]
+
+
+For chat message comes:
+
+signal sender=:1.2711 -> dest=(null destination) serial=623 path=/org/freedesktop/Telepathy/Connection/gabble/jabber/gmail_2ecom_2fJolla_5f0xf9c530/ImChannel2; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=MessageReceived
+   array [
+      array [
+         dict entry(
+            string "pending-message-id"
+            variant                uint32 0
+         )
+         dict entry(
+            string "message-sender-id"
+            variant                string "2ifzx0o8dl0sr055k0elb9dib3@public.talk.google.com"
+         )
+         dict entry(
+            string "message-received"
+            variant                int64 1418553046
+         )
+         dict entry(
+            string "message-token"
+            variant                string "dcf67e35-85a8-4aac-9fb8-63ba03cdcbe2"
+         )
+         dict entry(
+            string "message-sender"
+            variant                uint32 2
+         )
+      ]
+      array [
+         dict entry(
+            string "content"
+            variant                string "Terve"
+         )
+         dict entry(
+            string "content-type"
+            variant                string "text/plain"
+         )
+      ]
+   ]
+signal sender=:1.2711 -> dest=(null destination) serial=637 path=/org/freedesktop/Telepathy/Connection/gabble/jabber/gmail_2ecom_2fJolla_5f0xf9c530/ImChannel2; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=PendingMessagesRemoved
+   array [
+      uint32 0
+   ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+full output:
+
+signal sender=:1.9 -> dest=(null destination) serial=1206 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Type.Text; member=Received
+   uint32 11
+   uint32 1418555033
+   uint32 18
+   uint32 0
+   uint32 0
+   string "Heippa"
+signal sender=:1.9 -> dest=(null destination) serial=1207 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=MessageReceived
+   array [
+      array [
+         dict entry(
+            string "pending-message-id"
+            variant                uint32 11
+         )
+         dict entry(
+            string "message-token"
+            variant                string "e75d39ad-9563-48f8-96ac-8f2105022979"
+         )
+         dict entry(
+            string "message-type"
+            variant                uint32 0
+         )
+         dict entry(
+            string "message-sent"
+            variant                int64 1418555033
+         )
+         dict entry(
+            string "message-sender"
+            variant                uint32 18
+         )
+         dict entry(
+            string "message-received"
+            variant                int64 1418555035
+         )
+      ]
+      array [
+         dict entry(
+            string "content"
+            variant                string "Heippa"
+         )
+         dict entry(
+            string "content-type"
+            variant                string "text/plain"
+         )
+         dict entry(
+            string "type"
+            variant                string "text/plain"
+         )
+      ]
+   ]
+method call sender=:1.270 -> dest=:1.9 serial=2030 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Type.Text; member=AcknowledgePendingMessages
+   array [
+      uint32 11
+   ]
+signal sender=:1.9 -> dest=(null destination) serial=1208 path=/org/freedesktop/Telepathy/Connection/ring/tel/ring/text18; interface=org.freedesktop.Telepathy.Channel.Interface.Messages; member=PendingMessagesRemoved
+   array [
+      uint32 11
+   ]
+method return sender=:1.9 -> dest=:1.270 reply_serial=2030
+signal sender=:1.44 -> dest=(null destination) serial=3315 path=/CommHistoryModel; interface=com.nokia.commhistory; member=eventsAdded
+   array [
+      struct {
+         int32 1085
+         int32 2
+         struct {
+            struct {
+               int32 2014
+               int32 12
+               int32 14
+            }
+            struct {
+               int32 11
+               int32 3
+               int32 53
+               int32 0
+            }
+            int32 1
+         }
+         struct {
+            struct {
+               int32 2014
+               int32 12
+               int32 14
+            }
+            struct {
+               int32 11
+               int32 3
+               int32 55
+               int32 0
+            }
+            int32 1
+         }
+         int32 1
+         boolean false
+         boolean false
+         boolean false
+         boolean false
+         int32 0
+         int32 0
+         string "/org/freedesktop/Telepathy/Account/ring/tel/account0"
+         string "+358503866251"
+         array [
+         ]
+         int32 -1
+         string "Heippa"
+         int32 18
+         string "e75d39ad-9563-48f8-96ac-8f2105022979"
+         string ""
+         struct {
+            struct {
+               int32 1970
+               int32 1
+               int32 1
+            }
+            struct {
+               int32 2
+               int32 0
+               int32 0
+               int32 0
+            }
+            int32 0
+         }
+         int32 0
+         string ""
+         string ""
+         string ""
+         string ""
+         string ""
+         boolean false
+         boolean false
+         string ""
+         string ""
+         array [
+         ]
+         int32 0
+         boolean false
+         boolean false
+         int32 0
+         boolean false
+         array [
+         ]
+         array [
+         ]
+         array [
+            int32 4
+            int32 2
+            int32 3
+            int32 18
+            int32 0
+            int32 1
+            int32 16
+            int32 17
+            int32 12
+            int32 11
+         ]
+      }
+   ]
+method call sender=:1.44 -> dest=org.freedesktop.Notifications serial=3316 path=/org/freedesktop/Notifications; interface=org.freedesktop.Notifications; member=Notify
+   string "commhistoryd"
+   uint32 1497
+   string ""
+   string "‪arto Jalkanen‬"
+   string "5 uutta viestiä"
+   array [
+      string "default"
+      string ""
+   ]
+   array [
+      dict entry(
+         string "category"
+         variant             string "x-nemo.messaging.sms"
+      )
+      dict entry(
+         string "x-nemo-feedback"
+         variant             string ""
+      )
+      dict entry(
+         string "x-nemo-item-count"
+         variant             int32 5
+      )
+      dict entry(
+         string "x-nemo-remote-action-default"
+         variant             string "org.nemomobile.qmlmessages / org.nemomobile.qmlmessages showGroupsWindow"
+      )
+   ]
+   int32 -1
+method return sender=:1.33 -> dest=:1.44 reply_serial=3316
+   uint32 1497
+method call sender=:1.44 -> dest=org.freedesktop.Notifications serial=3317 path=/org/freedesktop/Notifications; interface=org.freedesktop.Notifications; member=Notify
+   string "commhistoryd"
+   uint32 0
+   string ""
+   string ""
+   string ""
+   array [
+      string "default"
+      string ""
+   ]
+   array [
+      dict entry(
+         string "x-nemo-preview-body"
+         variant             string "Heippa"
+      )
+      dict entry(
+         string "category"
+         variant             string "x-nemo.messaging.sms"
+      )
+      dict entry(
+         string "x-commhistoryd-data"
+         variant             array of bytes "AAAACgAAAAAaACsAMwA1ADgANQAwADMAOAA2ADYAMgA1ADEAAAAKAAAAAGgALwBvAHIAZwAvAGYAcgBlAGUAZABlAHMAawB0AG8AcAAvAFQAZQBsAGUAcABhAHQAaAB5AC8AQQBjAGMAbwB1AG4AdAAvAHIAaQBuAGcALwB0AGUAbAAvAGEAYwBjAG8AdQBuAHQAMAAAAAMAAAAAAgAAAAoAAAAAGgArADMANQA4ADUAMAAzADgANgA2ADIANQAxAAAAAwAAAAAAAAAAAwAAAAAaAAAACgAAAAAMAEgAZQBpAHAAcABhAAAAAQABAAAACgD/////AAAACgAAAABIAGUANwA1AGQAMwA5AGEAZAAtADkANQA2ADMALQA0ADgAZgA4AC0AOQA2AGEAYwAtADgAZgAyADEAMAA1ADAAMgAyADkANwA5AAAACgD/////"
+      )
+      dict entry(
+         string "x-nemo-remote-action-default"
+         variant             string "org.nemomobile.qmlmessages / org.nemomobile.qmlmessages startConversation AAAACgAAAABoAC8AbwByAGcALwBmAHIAZQBlAGQAZQBzAGsAdABvAHAALwBUAGUAbABlAHAAYQB0AGgAeQAvAEEAYwBjAG8AdQBuAHQALwByAGkAbgBnAC8AdABlAGwALwBhAGMAYwBvAHUAbgB0ADA= AAAACgAAAAAaACsAMwA1ADgANQAwADMAOAA2ADYAMgA1ADE= AAAAAwAAAAAA"
+      )
+      dict entry(
+         string "x-nemo-preview-summary"
+         variant             string "arto Jalkanen"
+      )
+   ]
+   int32 -1
+method return sender=:1.33 -> dest=:1.44 reply_serial=3317
+   uint32 1504
+
