@@ -22,7 +22,7 @@ import Sailfish.Silica 1.0
 
 CoverBackground {
     CoverPlaceholder {
-        text: "Find Jolla"
+        text: "Find My Jolla"
         icon.source: "harbour-findjolla.png"
     }
 }
