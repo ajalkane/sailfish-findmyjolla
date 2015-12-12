@@ -62,10 +62,13 @@ Page {
                 placeholderText: qsTr("Message to match")
                 width: parent.width
                 onTextChanged: matchToChanged(text)
+                Component.onCompleted: {
+                    text = backend.matchPhrase
+                }
             }
 
             Label {
-                text: qsTr("Application must be running for alarm to trigger")
+                text: qsTr("You can close this application and alarm will work. If you reboot phone, you will need to start this application again for background process to be started.")
 
                 wrapMode: Text.WordWrap
                 width: parent.width

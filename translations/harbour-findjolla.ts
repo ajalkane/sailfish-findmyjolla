@@ -42,8 +42,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/FirstPage.qml" line="68"/>
-        <source>Application must be running for alarm to trigger</source>
+        <location filename="../qml/pages/FirstPage.qml" line="71"/>
+        <source>You can close this application and alarm will work. If you reboot phone, you will need to start this application again for background process to be started.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -1,5 +1,5 @@
 /**********************************************************************
- * Copyright 2015 ajalkane
+ * Copyright 2015 Arto Jalkanen
  *
  * This file is part of Find My Jolla.
  *
@@ -16,28 +16,30 @@
  * You should have received a copy of the GNU General Public License
  * along with Find My Jolla.  If not, see <http://www.gnu.org/licenses/>
 **/
-#include "displayalarm.h"
-
-#include <QProcess>
 #include <QDebug>
 
-#define TIMEDCLIENT "/usr/bin/timedclient-qt5"
+#include "app/appmaininit.h"
+#include "daemon/daemonmaininit.h"
 
-DisplayAlarm::DisplayAlarm()
-{
+MainInit *createMainInit(bool isDaemon) {
+    if (isDaemon) return new DaemonMainInit;
+    return new AppMainInit;
 }
 
-bool
-DisplayAlarm::activate() {
-    QStringList args;
+Q_DECL_EXPORT
+int main(int argc, char *argv[])
+{
+    bool isDaemon = false;
 
-    args << "-bTITLE=button0"
-         << "-eAPPLICATION=FindJolla;TITLE=I'm here!;ticker=0";
+    for (int i = 0; i < argc; ++i) {
+        QString arg(argv[i]);
 
-    if (!QProcess::startDetached(TIMEDCLIENT, args)) {
-        qCritical() << "Failed starting " << TIMEDCLIENT;
-        return false;
+        if (arg == "-d") isDaemon = true;
     }
 
-    return true;
+    qDebug() << Q_FUNC_INFO << "isDaemon" << isDaemon;
+
+    QScopedPointer<MainInit> mainInit(createMainInit(isDaemon));
+
+    return mainInit->main(argc, argv);
 }
