@@ -1,5 +1,5 @@
 /**********************************************************************
- * Copyright 2015 ajalkane
+ * Copyright 2015 Arto Jalkanen
  *
  * This file is part of Find My Jolla.
  *
@@ -16,35 +16,37 @@
  * You should have received a copy of the GNU General Public License
  * along with Find My Jolla.  If not, see <http://www.gnu.org/licenses/>
 **/
-
 #include <QtQuick>
-
 #include <sailfishapp.h>
 
-#include "messagelistener.h"
-#include "displayalarm.h"
+#include "appmaininit.h"
 
-int main(int argc, char *argv[])
-{
-    // SailfishApp::main() will display "qml/template.qml", if you need more
-    // control over initialization, you can use:
-    //
-    //   - SailfishApp::application(int, char *[]) to get the QGuiApplication *
-    //   - SailfishApp::createView() to get a new QQuickView * instance
-    //   - SailfishApp::pathTo(QString) to get a QUrl to a resource file
-    //
-    // To display the view, call "show()" (will show fullscreen on device).
+ #include "controlclient.h"
+ #include "qmlbackend.h"
+
+#ifdef JOLLA_STORE_CRIPPLED
+#include "processcontrol.h"
+#define DAEMON_PATH "/usr/bin/harbour-findjolla -d"
+#endif
+
+int
+AppMainInit::main(int argc, char *argv[]) {
+#ifdef JOLLA_STORE_CRIPPLED
+    ProcessControl daemonControl(DAEMON_PATH);
+    daemonControl.startIfNotRunning();
+#endif
+
+    qDebug() << Q_FUNC_INFO << "Starting app";
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     QScopedPointer<QQuickView> view(SailfishApp::createView());
-    QScopedPointer<MessageListener> messageListener(new MessageListener);
-    QScopedPointer<DisplayAlarm> displayAlarm(new DisplayAlarm);
 
-    view->rootContext()->setContextProperty("messageListener", messageListener.data());
-    view->rootContext()->setContextProperty("displayAlarm", displayAlarm.data());
+    ControlClient controlClient;
+    QmlBackend qmlBackend(&controlClient);
+
+    view->rootContext()->setContextProperty("backend", &qmlBackend);
+//    view->setSource(SailfishApp::pathTo("qml/app/harbour-ringingrestorer.qml"));
     view->setSource(SailfishApp::pathTo("qml/findjolla.qml"));
 
     view->show();
-
     return app->exec();
 }
-

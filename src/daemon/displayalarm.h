@@ -29,7 +29,7 @@ public:
     DisplayAlarm();
 
 public slots:
-    bool activate();
+    bool activate() const;
 };
 
 #endif // DISPLAYALARM_H

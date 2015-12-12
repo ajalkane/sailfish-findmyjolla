@@ -8,6 +8,10 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Dec 12 2015 Arto Jalkanen <arto.jalkanen@vincit.fi> 1.0-1
+- Background process
+- Saving of settings
+
 * Sat Oct 28 2015 Arto Jalkanen <arto.jalkanen@vincit.fi> 0.1-1
 - Initial version
 

@@ -54,7 +54,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Application must be running for alarm to trigger</source>
+        <source>You can close this application and alarm will work. If you reboot phone, you will need to start this application again for background process to be started.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

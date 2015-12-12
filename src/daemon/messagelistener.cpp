@@ -25,8 +25,8 @@
 #define DBUS_MEMBER_NAME "MessageReceived"
 #define DBUS_ENTRY_WITH_MESSAGE "content"
 
-MessageListener::MessageListener(QObject *parent) :
-    QObject(parent), sessionBus(QDBusConnection::sessionBus())
+MessageListener::MessageListener(const Preferences *preferences, const DisplayAlarm *displayAlarm, QObject *parent) :
+    QObject(parent), _preferences(preferences), _displayAlarm(displayAlarm), sessionBus(QDBusConnection::sessionBus())
 {
     if (!sessionBus.connect("", "", DBUS_INTERFACE, DBUS_MEMBER_NAME, this, SLOT(dbusMessageReceived(const QDBusMessage &)))) {
         qDebug() << Q_FUNC_INFO << "Error registering signal listener" << sessionBus.lastError().type();
@@ -37,6 +37,11 @@ MessageListener::MessageListener(QObject *parent) :
 
 void
 MessageListener::dbusMessageReceived(const QDBusMessage &msg) const {
+    if (!_preferences->isActive) {
+        qDebug() << Q_FUNC_INFO << "Not active, ignoring message";
+        return;
+    }
+
     qDebug() << Q_FUNC_INFO << "Received message" << msg;
     qDebug() << Q_FUNC_INFO << "Received message arguments: " << msg.arguments().size();
 
@@ -44,8 +49,15 @@ MessageListener::dbusMessageReceived(const QDBusMessage &msg) const {
     if (content.isNull()) {
         qWarning() << Q_FUNC_INFO << "No content found from message";
     } else {
+        QString match = _preferences->matchPhrase;
+        content = content.trimmed();
         qDebug() << Q_FUNC_INFO << "Emitting message received with content '" << content << "'";
         emit messageReceived(content);
+
+        if (match == content) {
+            qDebug() << Q_FUNC_INFO << "Message matched passphrase";
+            _displayAlarm->activate();
+        }
     }
 }
 

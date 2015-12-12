@@ -25,31 +25,32 @@ ApplicationWindow
 {
     id: root
 
-    property string matchTo
+//    property string matchTo
 
     initialPage: Component {
         FirstPage {
             onMatchToChanged: {
                 console.log("Match to changed: " + matchTo)
-                root.matchTo = matchTo
+                backend.matchPhrase = matchTo
+//                root.matchTo = matchTo
             }
         }
     }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
 
-    Connections {
-        target: messageListener
-        onMessageReceived: {
-            console.log("Received message" + message)
-            var matchTo = root.matchTo.trim()
-            console.log("Match to " + matchTo)
+//    Connections {
+//        target: messageListener
+//        onMessageReceived: {
+//            console.log("Received message" + message)
+//            var matchTo = root.matchTo.trim()
+//            console.log("Match to " + matchTo)
 
-            if (message.trim() === matchTo) {
-                console.log("Trying to activate alarm")
-                displayAlarm.activate()
-            }
-        }
-    }
+//            if (message.trim() === matchTo) {
+//                console.log("Trying to activate alarm")
+//                displayAlarm.activate()
+//            }
+//        }
+//    }
 
 }
 
