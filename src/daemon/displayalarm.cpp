@@ -32,7 +32,7 @@ DisplayAlarm::activate() const {
     QStringList args;
 
     args << "-bTITLE=button0"
-         << "-eAPPLICATION=FindJolla;TITLE=I'm here!;ticker=0";
+         << "-eAPPLICATION=FindMyJolla;TITLE=Find My Jolla;ticker=0";
 
     if (!QProcess::startDetached(TIMEDCLIENT, args)) {
         qCritical() << "Failed starting " << TIMEDCLIENT;

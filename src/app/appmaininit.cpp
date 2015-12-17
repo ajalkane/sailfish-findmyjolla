@@ -44,7 +44,6 @@ AppMainInit::main(int argc, char *argv[]) {
     QmlBackend qmlBackend(&controlClient);
 
     view->rootContext()->setContextProperty("backend", &qmlBackend);
-//    view->setSource(SailfishApp::pathTo("qml/app/harbour-ringingrestorer.qml"));
     view->setSource(SailfishApp::pathTo("qml/findjolla.qml"));
 
     view->show();

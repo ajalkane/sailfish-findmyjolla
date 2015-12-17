@@ -48,6 +48,7 @@ Page {
             spacing: Theme.paddingLarge
 
             PageHeader {
+                //: Note to translators: application name should not be translated
                 title: qsTr("Find My Jolla")
             }
 

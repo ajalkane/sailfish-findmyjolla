@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Dec 17 2015 ajalkane-qt_junkie 1.1-1
+- Support for translations
+
 * Sat Dec 12 2015 Arto Jalkanen <arto.jalkanen@vincit.fi> 1.0-1
 - Background process
 - Saving of settings

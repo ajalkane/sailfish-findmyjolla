@@ -57,5 +57,5 @@ OTHER_FILES += qml/findjolla.qml \
 # to disable building translations every time, comment out the
 # following CONFIG line
 CONFIG += sailfishapp_i18n
-TRANSLATIONS += translations/findjolla-de.ts
+TRANSLATIONS += translations/harbour-findjolla-fi.ts
 

@@ -22,6 +22,7 @@ import Sailfish.Silica 1.0
 
 CoverBackground {
     CoverPlaceholder {
+        //: Note to translators: application name should not be translated
         text: "Find My Jolla"
         icon.source: "harbour-findjolla.png"
     }
