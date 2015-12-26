@@ -16,7 +16,12 @@
     </message>
     <message>
         <location filename="../qml/pages/About.qml" line="50"/>
-        <source>&lt;a href=&quot;https://github.com/ajalkane/sailfish-findmyjolla&quot;&gt;Released under GPLv3&lt;/a&gt;&lt;p&gt;&lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=499LF83BBX5RY&quot;&gt;Please donate if you like this application&lt;/a&gt;</source>
+        <source>&lt;a href=&quot;https://github.com/ajalkane/sailfish-findmyjolla&quot;&gt;Released under GPLv3&lt;/a&gt;&lt;p&gt;&lt;a href=&quot;https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=499LF83BBX5RY&quot;&gt;Please donate if you like this application&lt;/a&gt;&lt;p&gt;Translations can be done in &lt;a href=&quot;https://www.transifex.com/namnam/findmyjolla&quot;&gt;Transifex page&lt;/a&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/About.qml" line="69"/>
+        <source>Translations</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -25,12 +30,6 @@
     <message>
         <location filename="../qml/pages/FirstPage.qml" line="34"/>
         <source>About</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/FirstPage.qml" line="52"/>
-        <source>Find My Jolla</source>
-        <extracomment>Note to translators: application name should not be translated</extracomment>
         <translation type="unfinished"></translation>
     </message>
     <message>

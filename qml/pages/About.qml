@@ -52,6 +52,8 @@ Page {
                     + '<p>'
                     + '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=499LF83BBX5RY">'
                     + 'Please donate if you like this application</a>'
+                    + '<p>'
+                    + 'Translations can be done in <a href="https://www.transifex.com/namnam/findmyjolla">Transifex page</a>'
                 )
                 textFormat: Text.RichText
                 wrapMode: Text.WordWrap
@@ -62,6 +64,23 @@ Page {
                     Qt.openUrlExternally(link)
                 }
             }
+
+            Label {
+                text: qsTr("Translations")
+                width: parent.width
+                font.underline: true
+            }
+
+            Label {
+                text: '<ul>'
+                    + '<li>Finnish, Russian - ajalkane &amp; qt_junkie</li>'
+                    + '</ul>'
+                textFormat: Text.RichText
+                wrapMode: Text.WordWrap
+                width: parent.width
+                font.pixelSize: Theme.fontSizeSmall
+            }
+
         }
     }
 }

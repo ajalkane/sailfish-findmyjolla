@@ -49,7 +49,7 @@ Page {
 
             PageHeader {
                 //: Note to translators: application name should not be translated
-                title: qsTr("Find My Jolla")
+                title: "Find My Jolla"
             }
 
             Label {
